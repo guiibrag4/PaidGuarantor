@@ -6,13 +6,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 
-public class TelaClientesOpcoes extends javax.swing.JFrame {
-	public	TelaClientesOpcoes() {
+public class TelaProdutosOpcoes extends javax.swing.JFrame {
+	public	TelaProdutosOpcoes() {
 	        initComponents();
 	        setLocationRelativeTo(null);
 	    }
@@ -21,17 +19,15 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
 	private void initComponents() {
 
 		lblimg = new javax.swing.JLabel();
-		cadastrar = new JButton();
-		atualizar = new JButton ();
 		voltar = new JButton ();
+		cadastrar = new JButton();	
 		listar = new JButton ();
-		excluir = new JButton ();
 		
 		voltar.addActionListener(new java.awt.event.ActionListener() {
-		        public void actionPerformed(java.awt.event.ActionEvent evt) {
-		            voltarActionPerformed(evt);
-		        }
-		    });
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            voltarActionPerformed(evt);
+	        }
+	    });
 		
 		cadastrar.addActionListener(new java.awt.event.ActionListener() {
 	        public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -41,12 +37,12 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
 		
 		listar.addActionListener(new java.awt.event.ActionListener() {
 	        public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            listarActionPerformed(evt);
+	        	listarActionPerformed(evt);
 	        }
 	    });
 		
 		//Cadastrar
-		cadastrar.setText("Cadastrar um novo cliente");
+		cadastrar.setText("Cadastrar um novo produto");
         getContentPane().add(cadastrar);
         
         Font novaFonte = new Font ("MV Boli",Font.BOLD, 15);
@@ -54,38 +50,17 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
         cadastrar.setForeground(Color.BLACK);
         cadastrar.setFont(novaFonte);
         
-        cadastrar.setBounds (100,195,250,50);
+        cadastrar.setBounds (270,220,250,50);
        
-        
         //Listar
-        listar.setText("Listar os clientes");
+        listar.setText("Listar os produtos");
         getContentPane().add(listar);
         
         listar.setBackground(Color.GREEN);
         listar.setForeground(Color.BLACK);
         listar.setFont(novaFonte);
         
-        listar.setBounds (450, 195,250,50);
-        
-        //Atualizar
-        atualizar.setText("Atualizar cliente");
-        getContentPane().add(atualizar);
-        
-        atualizar.setBackground(Color.GREEN);
-        atualizar.setForeground(Color.BLACK);
-        atualizar.setFont(novaFonte);
-        
-        atualizar.setBounds (100, 345,250,50);
-        
-        //Excluir
-        excluir.setText("Excluir cliente");
-        getContentPane().add(excluir);
-       
-        excluir.setBackground(Color.RED);
-        excluir.setForeground(Color.BLACK);
-        excluir.setFont(novaFonte);
-        
-        excluir.setBounds (450, 345,250,50);
+        listar.setBounds (270, 320,250,50);
         
         //Voltar
         voltar.setText("Voltar");
@@ -96,7 +71,7 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
         voltar.setFont(novaFonte);
         
         voltar.setBounds (3, 480,150,30);
-
+        
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/TelaBase.png"));
 		Image img = icon.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
 		icon = new ImageIcon(img);
@@ -118,31 +93,28 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaClientesOpcoes().setVisible(true);
+				new TelaProdutosOpcoes().setVisible(true);
 			}
 		});
 	}
-		  
+	  
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
 		new TelaPrincipal().setVisible(true);
 	    dispose(); 
 	}   
     
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaClientesCadastro().setVisible(true);
+		new TelaProdutosCadastro().setVisible(true);
 	    dispose(); 
-	}  
+	}   
     
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaListagemClientes().setVisible(true);
+		new TelaListagemProdutos().setVisible(true);
 	    dispose(); 
-	}  
+	}   
 
 	private JLabel lblimg;
-	private JButton cadastrar;
 	private JButton voltar;
+	private JButton cadastrar;
 	private JButton listar;
-	private JButton excluir;
-	private JButton atualizar;
-
 }

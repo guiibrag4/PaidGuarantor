@@ -13,6 +13,7 @@ import javax.swing.*;
 public class TelaRegistrarVendas extends javax.swing.JFrame {
 	public	TelaRegistrarVendas() {
 	        initComponents();
+	        setLocationRelativeTo(null);
 	    }
 
 	@SuppressWarnings("unchecked")
@@ -30,6 +31,12 @@ public class TelaRegistrarVendas extends javax.swing.JFrame {
 		lblValorPedido= new JLabel ();
 		lblDataPedido= new JLabel ();
 		lblItensPedido= new JLabel ();
+		
+		voltar.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            voltarActionPerformed(evt);
+	        }
+	    });
 		
 		getContentPane().add(lblNovaVenda);
 		getContentPane().add(lblCliente);
@@ -129,6 +136,11 @@ public class TelaRegistrarVendas extends javax.swing.JFrame {
 			}
 		});
 	}
+	  
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+		new TelaPrincipal().setVisible(true);
+	    dispose(); 
+	}   
 
 	private JLabel lblimg;
 	private JButton confirmar;

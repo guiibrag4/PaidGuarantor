@@ -1,70 +1,63 @@
 package View;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
+import java.awt.Image;
 import java.util.Timer;
+import java.util.TimerTask;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class TelaCarregamento extends JFrame {
-    public TelaCarregamento() {
-        initComponents();
-    }
+	public TelaCarregamento() {
+		initComponents();
+		setLocationRelativeTo(null);
+	}
 
-    @SuppressWarnings("unchecked")
-    private void initComponents() {
-        lblimg = new javax.swing.JLabel();
-        
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/TelaCarregamento2.png"));
-        Image img = icon.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
-        icon = new ImageIcon(img);
-        lblimg.setIcon(icon);
-        lblimg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+	@SuppressWarnings("unchecked")
+	private void initComponents() {
+		lblimg = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblimg, javax.swing.GroupLayout.PREFERRED_SIZE, 800, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblimg, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
-        );
+		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/TelaCarregamento2.png"));
+		Image img = icon.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
+		icon = new ImageIcon(img);
+		lblimg.setIcon(icon);
+		lblimg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        pack();
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		getContentPane().setLayout(layout);
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(lblimg, javax.swing.GroupLayout.PREFERRED_SIZE, 800, Short.MAX_VALUE)
+						.addContainerGap()));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addComponent(lblimg, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE));
 
-        // Agendando a transição para a tela de login após 5 segundos
-    Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                openLoginScreen();
-            }
-        }, 4000); // 5 segundos em milissegundos 
-    }
+		pack();
 
-    private void openLoginScreen() {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLogin().setVisible(true);
-                dispose(); // Fecha a tela de carregamento
-            }
-        });
-    } 
+		// Agendando a transição para a tela de login após 5 segundos
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				openLoginScreen();
+			}
+		}, 4000); // 5 segundos em milissegundos
+	}
 
-    /*public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-            	new TelaCarregamento().setVisible(true);             
-            }
-        });
-    } */
+	private void openLoginScreen() {
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new TelaLogin().setVisible(true);
+				dispose(); // Fecha a tela de carregamento
+			}
+		});
+	}
 
-    private javax.swing.JLabel lblimg;
+	/*
+	 * public static void main(String args[]) { java.awt.EventQueue.invokeLater(new
+	 * Runnable() { public void run() { new TelaCarregamento().setVisible(true); }
+	 * }); }
+	 */
+
+	private javax.swing.JLabel lblimg;
 }
-
-
-

@@ -11,38 +11,8 @@ import javax.swing.*;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 	public	TelaPrincipal() {
-	        initComponents();
-	        
-	        clientes.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	                clientesActionPerformed(evt);
-	            }
-	        });
-	        
-	        devedores.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	                devedoresActionPerformed(evt);
-	            }
-	        });
-	        
-	        pagos.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	                pagosActionPerformed(evt);
-	            }
-	        });
-	        
-	        registrarVendas.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	                registrarVendasActionPerformed(evt);
-	            }
-	        });
-	        
-	        produtos.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	                produtosActionPerformed(evt);
-	            }
-	        });
-	        
+	        initComponents();   
+	        setLocationRelativeTo(null);
 	    }
 
 	@SuppressWarnings("unchecked")
@@ -55,6 +25,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		pagos = new JButton ();
 		devedores = new JButton ();
 		produtos = new JButton ();
+		
+		clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientesActionPerformed(evt);
+            }
+        });
+        
+        devedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devedoresActionPerformed(evt);
+            }
+        });
+        
+        pagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagosActionPerformed(evt);
+            }
+        });
+        
+        registrarVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarVendasActionPerformed(evt);
+            }
+        });
+        
+        produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                produtosActionPerformed(evt);
+            }
+        });
 		
 		//clientes
 		clientes.setText("Clientes");
@@ -139,12 +139,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	}   
 	
 	private void registrarVendasActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaRegistrarVendas().setVisible(true);
-	    dispose(); // Fecha a tela de carregamento
+		new TelaRegistrarVendasOpcoes().setVisible(true);
+	    dispose();
 	}   
 	
 	private void produtosActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    	
+		new TelaProdutosOpcoes().setVisible(true);
+	    dispose();
 	}   	
 	
 	public static void main (String [] args) {
