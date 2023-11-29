@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 import DAO.UsuariosDAO;
 import Model.Usuarios;
-import Util.ModuloConexao;
+import Util.DB;
 
 import javax.swing.*;
 
@@ -18,6 +18,7 @@ import javax.swing.*;
 public class TelaCadastro extends javax.swing.JFrame {
 	public	TelaCadastro() {
 	        initComponents();
+	        setLocationRelativeTo(null);
 	        cadastrar.addActionListener(new java.awt.event.ActionListener() {
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
 	                jButton1ActionPerformed(evt);
@@ -121,7 +122,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 	}
 	
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {         
-	ModuloConexao bd = new ModuloConexao ();
+	DB bd = new DB ();
 	
 	String email = jTextField1.getText();	
 	String senha = new String (jPasswordField.getPassword());
@@ -134,7 +135,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 	user.setTelefone(telefone);
 	user.setNome (nome);
 	
-	UsuariosDAO u = new UsuariosDAO (bd.conectar());
+	UsuariosDAO u = new UsuariosDAO (DB.getConnection());
 	try {
 		u.inserirUsuario(user);
 		JOptionPane.showMessageDialog (null, "Usuário cadastrado com sucesso!");

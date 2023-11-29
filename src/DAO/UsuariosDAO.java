@@ -6,6 +6,7 @@
 	import java.sql.SQLException;
 	
 	import Model.Usuarios;
+	import Util.DB;
 	
 	public class UsuariosDAO {
 	
@@ -36,38 +37,35 @@
 			PreparedStatement ps = connection.prepareStatement(sql);
 			return ps.executeQuery();
 		}
-		
+	
 		public boolean validarLogin(String email, String senha) {
 			try {
-		        String sql = "SELECT * FROM fiado_pago.usuarios WHERE email = ? AND senha = ?";
-		        PreparedStatement ps = connection.prepareStatement(sql);
-		        ps.setString(1, email);
-		        ps.setString(2, senha);
-		        
+				String sql = "SELECT * FROM fiado_pago.usuarios WHERE email = ? AND senha = ?";
+				PreparedStatement ps = connection.prepareStatement(sql);
+				ps.setString(1, email);
+				ps.setString(2, senha);
 	
-		        ResultSet rs = ps.executeQuery();
-		        return rs.next(); 
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		        return false;
-		    }
+				ResultSet rs = ps.executeQuery();
+				return rs.next();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
 		}
-		
-	/*public void atualizarUsuario(Usuarios user) throws SQLException {
-		String sql = "UPDATE Usuarios SET senha = ?, emailrecup = ?, telefone = ? WHERE usuario_id = ?";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		ps.setString(1, user.getSenha());
-		ps.setString(2, user.getEmailRecup());
-		ps.setString(3, user.getTelefone());
-		ps.setInt(4, user.getUsuario_id());
-		ps.executeUpdate();
-	}
 	
-	public void excluirUsuario(Usuarios user) throws SQLException {
-		String sql = "DELETE FROM Usuarios WHERE usuario_id = ?";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		ps.setInt(1, user.getUsuario_id());
-		ps.executeUpdate();
-	} */
+		/*
+		 * public void atualizarUsuario(Usuarios user) throws SQLException { String sql
+		 * =
+		 * "UPDATE Usuarios SET senha = ?, emailrecup = ?, telefone = ? WHERE usuario_id = ?"
+		 * ; PreparedStatement ps = connection.prepareStatement(sql); ps.setString(1,
+		 * user.getSenha()); ps.setString(2, user.getEmailRecup()); ps.setString(3,
+		 * user.getTelefone()); ps.setInt(4, user.getUsuario_id()); ps.executeUpdate();
+		 * }
+		 * 
+		 * public void excluirUsuario(Usuarios user) throws SQLException { String sql =
+		 * "DELETE FROM Usuarios WHERE usuario_id = ?"; PreparedStatement ps =
+		 * connection.prepareStatement(sql); ps.setInt(1, user.getUsuario_id());
+		 * ps.executeUpdate(); }
+		 */
 	
 	}

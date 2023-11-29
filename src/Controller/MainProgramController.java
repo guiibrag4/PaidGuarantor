@@ -1,16 +1,7 @@
 package Controller;
 
-import javax.swing.JOptionPane;
-import DAO.ClientesDAO;
-import DAO.UsuariosDAO;
-
-import java.sql.*;
 import java.util.Locale;
-
-
-import Util.ModuloConexao;
 import View.TelaCarregamento;
-
 
 public class MainProgramController {
 	public static void main(String[] args) {
@@ -22,6 +13,5 @@ public class MainProgramController {
 				new TelaCarregamento().setVisible(true);
 			}
 		});
-		
 	}
 }

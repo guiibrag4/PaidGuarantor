@@ -6,7 +6,6 @@ public class Clientes {
 	private String cpf;
 	private String telefone;
 	private String endereco_cobranca;
-	private Boolean status;
 	
 // Construtores
 	
@@ -66,14 +65,6 @@ public String getEndereco_cobranca() {
 
 public void setEndereco_cobranca(String endereco_cobranca) {
 	this.endereco_cobranca = endereco_cobranca;
-}
-
-public Boolean getStatus() {
-	return status;
-}
-
-public void setStatus(Boolean status) {
-	this.status = status;
 }
 
 }
