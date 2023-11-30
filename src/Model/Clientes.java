@@ -23,12 +23,11 @@ public Clientes (int cliente_id, String nome, String cpf, String telefone, Strin
 
 // Métodos getters e setters
 
-<<<<<<< HEAD
-=======
+
 public int getClient_id () {
 	return cliente_id;
 }
->>>>>>> feed0cbab4b2cc04ef265814c049eea8b9e84de2
+
 
 public int getCliente_id() {
 	return cliente_id;
