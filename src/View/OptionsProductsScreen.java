@@ -9,8 +9,8 @@ import java.awt.Image;
 import javax.swing.*;
 
 
-public class TelaRegistrarVendasOpcoes extends javax.swing.JFrame {
-	public	TelaRegistrarVendasOpcoes() {
+public class OptionsProductsScreen extends javax.swing.JFrame {
+	public	OptionsProductsScreen() {
 	        initComponents();
 	        setLocationRelativeTo(null);
 	    }
@@ -29,8 +29,20 @@ public class TelaRegistrarVendasOpcoes extends javax.swing.JFrame {
 	        }
 	    });
 		
+		cadastrar.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            cadastrarActionPerformed(evt);
+	        }
+	    });
+		
+		listar.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	        	listarActionPerformed(evt);
+	        }
+	    });
+		
 		//Cadastrar
-		cadastrar.setText("Registrar uma nova venda");
+		cadastrar.setText("Cadastrar um novo produto");
         getContentPane().add(cadastrar);
         
         Font novaFonte = new Font ("MV Boli",Font.BOLD, 15);
@@ -41,7 +53,7 @@ public class TelaRegistrarVendasOpcoes extends javax.swing.JFrame {
         cadastrar.setBounds (270,220,250,50);
        
         //Listar
-        listar.setText("Listar as vendas");
+        listar.setText("Listar os produtos");
         getContentPane().add(listar);
         
         listar.setBackground(Color.GREEN);
@@ -50,7 +62,6 @@ public class TelaRegistrarVendasOpcoes extends javax.swing.JFrame {
         
         listar.setBounds (270, 320,250,50);
         
-        //Voltar
         //Voltar
         voltar.setText("Voltar");
         getContentPane().add(voltar);
@@ -82,13 +93,23 @@ public class TelaRegistrarVendasOpcoes extends javax.swing.JFrame {
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaRegistrarVendasOpcoes().setVisible(true);
+				new OptionsProductsScreen().setVisible(true);
 			}
 		});
 	}
-	
+	  
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaPrincipal().setVisible(true);
+		new MainScreen().setVisible(true);
+	    dispose(); 
+	}   
+    
+    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+		new RegisterProductScreen().setVisible(true);
+	    dispose(); 
+	}   
+    
+    private void listarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+		new RUDProductsScreen().setVisible(true);
 	    dispose(); 
 	}   
 

@@ -9,14 +9,12 @@ import java.awt.Image;
 import javax.swing.*;
 
 import DAO.ClientesDAO;
-import DAO.UsuariosDAO;
 import Model.Clientes;
-import Model.Usuarios;
 import Util.DB;
 
 
-public class TelaClientesCadastro extends javax.swing.JFrame {
-	public	TelaClientesCadastro() {
+public class RegisterCustomerScreen extends javax.swing.JFrame {
+	public	RegisterCustomerScreen() {
 	        initComponents();
 	        setLocationRelativeTo(null);
 	    }
@@ -148,13 +146,13 @@ public class TelaClientesCadastro extends javax.swing.JFrame {
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaClientesCadastro().setVisible(true);
+				new RegisterCustomerScreen().setVisible(true);
 			}
 		});
 	}
 	  
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaClientesOpcoes().setVisible(true);
+		new OptionsCustomersScreen().setVisible(true);
 	    dispose(); 
 	}   
     
@@ -165,6 +163,11 @@ public class TelaClientesCadastro extends javax.swing.JFrame {
     	String cpf = jTextCpf.getText();
     	String telefone = jTextTelefone.getText();
     	String enderecoCobranca = jTextEnderecoCobranca.getText();
+    	
+    	if (nome.isEmpty() || cpf.isEmpty() || telefone.isEmpty() || enderecoCobranca.isEmpty()) {
+    		JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
+    		return;
+    	}
     
     	Clientes customer = new Clientes ();
     	customer.setNome(nome);

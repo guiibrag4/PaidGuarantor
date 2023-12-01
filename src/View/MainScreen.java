@@ -9,8 +9,8 @@ import java.awt.Image;
 import javax.swing.*;
 
 
-public class TelaPrincipal extends javax.swing.JFrame {
-	public	TelaPrincipal() {
+public class MainScreen extends javax.swing.JFrame {
+	public	MainScreen() {
 	        initComponents();   
 	        setLocationRelativeTo(null);
 	    }
@@ -126,7 +126,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	}
 	
 	private void clientesActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaClientesOpcoes().setVisible(true);
+		new OptionsCustomersScreen().setVisible(true);
 	    dispose(); 
 	}   
 	
@@ -139,19 +139,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	}   
 	
 	private void registrarVendasActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaRegistrarVendasOpcoes().setVisible(true);
+		new OptionsRegisterSalesScreen().setVisible(true);
 	    dispose();
 	}   
 	
 	private void produtosActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaProdutosOpcoes().setVisible(true);
+		new OptionsProductsScreen().setVisible(true);
 	    dispose();
 	}   	
 	
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaPrincipal().setVisible(true);
+				new MainScreen().setVisible(true);
 			}
 		});
 	}

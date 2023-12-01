@@ -17,13 +17,13 @@ import javax.swing.JTextField;
 import DAO.UsuariosDAO;
 import Util.DB;
 
-public class TelaLogin extends javax.swing.JFrame {
+public class LoginScreen extends javax.swing.JFrame {
 
 	Connection conexao = null;
 	PreparedStatement sql = null;
 	ResultSet rs = null;
 
-	public TelaLogin() {
+	public LoginScreen() {
 		initComponents();
 		setLocationRelativeTo(null);
 
@@ -100,7 +100,7 @@ public class TelaLogin extends javax.swing.JFrame {
 		String senha = new String(jPasswordField1.getText());
 
 		if (u.validarLogin(email, senha)) {
-			TelaPrincipal telaPrincipal = new TelaPrincipal();
+			MainScreen telaPrincipal = new MainScreen();
 			telaPrincipal.setVisible(true);
 			this.dispose();
 		} else {
@@ -109,7 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
 	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-		new TelaCadastro().setVisible(true);
+		new RegisterUserScreen().setVisible(true);
 		dispose();
 	}
 

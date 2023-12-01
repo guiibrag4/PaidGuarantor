@@ -5,7 +5,7 @@ package View;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.text.DecimalFormat;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -15,15 +15,19 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.text.NumberFormatter;
+
 
 import DAO.ProdutosDAO;
 import Model.Produtos;
 import Util.DB;
 
 
-public class TelaProdutosCadastro extends javax.swing.JFrame {
-	public	TelaProdutosCadastro() {
+public class RegisterProductScreen extends javax.swing.JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public	RegisterProductScreen() {
 	        initComponents();
 	        setLocationRelativeTo(null);
 	        cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -33,7 +37,6 @@ public class TelaProdutosCadastro extends javax.swing.JFrame {
 	        });
 	    }
 
-	@SuppressWarnings("unchecked")
 	private void initComponents() {
 
 		lblimg = new javax.swing.JLabel();
@@ -134,7 +137,7 @@ public class TelaProdutosCadastro extends javax.swing.JFrame {
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaProdutosCadastro().setVisible(true);
+				new RegisterProductScreen().setVisible(true);
 			}
 		});
 	}
@@ -144,7 +147,11 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 	String preco = jFormattedPreco.getText();
 	Double precoDouble = Double.parseDouble(preco);
 	
-	
+	if (nome.isEmpty() || preco.isEmpty()) {
+		JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
+		return;
+	}
+
 	Produtos product = new Produtos ();
 	product.setNome(nome);
 	product.setPreco(precoDouble);
@@ -153,7 +160,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 	try {
 		p.inserirProduto(product);
 		JOptionPane.showMessageDialog (null, "Produto Cadastrado!");
-	    new TelaPrincipal().setVisible(true);
+	    new MainScreen().setVisible(true);
 	    dispose(); 
 	} catch (Exception e) {
 		JOptionPane.showMessageDialog (null, "Erro ao cadastrar o produto: " + e.getMessage());
@@ -161,7 +168,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 } 
 
 	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaProdutosOpcoes().setVisible(true);
+		new OptionsProductsScreen().setVisible(true);
 		dispose(); 
 	}  
 

@@ -7,8 +7,8 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class TelaCarregamento extends JFrame {
-	public TelaCarregamento() {
+public class LoadingScreen extends JFrame {
+	public LoadingScreen() {
 		initComponents();
 		setLocationRelativeTo(null);
 	}
@@ -47,7 +47,7 @@ public class TelaCarregamento extends JFrame {
 	private void openLoginScreen() {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaLogin().setVisible(true);
+				new LoginScreen().setVisible(true);
 				dispose(); // Fecha a tela de carregamento
 			}
 		});
