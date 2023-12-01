@@ -37,7 +37,7 @@ public class ProdutosDAO {
 	}
 	
 	public void atualizarProduto(Produtos product) throws SQLException { 
-		 String sql = "UPDATE fiado_pago.produtos SET nome = ?, preco ? WHERE produto_id = ?"; 
+		 String sql = "UPDATE fiado_pago.produtos SET nome = ?, preco = ? WHERE produto_id = ?"; 
 		 PreparedStatement ps = connection.prepareStatement(sql);
 		 
 		 ps.setString(1, product.getNome()); 
