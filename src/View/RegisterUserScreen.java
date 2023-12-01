@@ -15,8 +15,8 @@ import Util.DB;
 import javax.swing.*;
 
 
-public class TelaCadastro extends javax.swing.JFrame {
-	public	TelaCadastro() {
+public class RegisterUserScreen extends javax.swing.JFrame {
+	public	RegisterUserScreen() {
 	        initComponents();
 	        setLocationRelativeTo(null);
 	        cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaCadastro().setVisible(true);
+				new RegisterUserScreen().setVisible(true);
 			}
 		});
 	}
@@ -135,11 +135,16 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 	user.setTelefone(telefone);
 	user.setNome (nome);
 	
+	if (email.isEmpty() || senha.isEmpty() || telefone.isEmpty() || nome.isEmpty()) {
+		JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios", "Erro", JOptionPane.WARNING_MESSAGE);
+		return;
+	}
+	
 	UsuariosDAO u = new UsuariosDAO (DB.getConnection());
 	try {
 		u.inserirUsuario(user);
 		JOptionPane.showMessageDialog (null, "Usuário cadastrado com sucesso!");
-	    new TelaLogin().setVisible(true);
+	    new LoginScreen().setVisible(true);
 	    dispose(); // Fecha a tela de carregamento
 	} catch (Exception e) {
 		JOptionPane.showMessageDialog (null, "Erro ao cadastrar usuário: " + e.getMessage());

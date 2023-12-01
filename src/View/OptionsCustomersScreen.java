@@ -11,8 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 
-public class TelaClientesOpcoes extends javax.swing.JFrame {
-	public	TelaClientesOpcoes() {
+public class OptionsCustomersScreen extends javax.swing.JFrame {
+	public	OptionsCustomersScreen() {
 	        initComponents();
 	        setLocationRelativeTo(null);
 	    }
@@ -22,10 +22,8 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
 
 		lblimg = new javax.swing.JLabel();
 		cadastrar = new JButton();
-		atualizar = new JButton ();
 		voltar = new JButton ();
 		listar = new JButton ();
-		excluir = new JButton ();
 		
 		voltar.addActionListener(new java.awt.event.ActionListener() {
 		        public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,7 +52,7 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
         cadastrar.setForeground(Color.BLACK);
         cadastrar.setFont(novaFonte);
         
-        cadastrar.setBounds (100,195,250,50);
+        cadastrar.setBounds (270,220,250,50);
        
         
         //Listar
@@ -65,27 +63,7 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
         listar.setForeground(Color.BLACK);
         listar.setFont(novaFonte);
         
-        listar.setBounds (450, 195,250,50);
-        
-        //Atualizar
-        atualizar.setText("Atualizar cliente");
-        getContentPane().add(atualizar);
-        
-        atualizar.setBackground(Color.GREEN);
-        atualizar.setForeground(Color.BLACK);
-        atualizar.setFont(novaFonte);
-        
-        atualizar.setBounds (100, 345,250,50);
-        
-        //Excluir
-        excluir.setText("Excluir cliente");
-        getContentPane().add(excluir);
-       
-        excluir.setBackground(Color.RED);
-        excluir.setForeground(Color.BLACK);
-        excluir.setFont(novaFonte);
-        
-        excluir.setBounds (450, 345,250,50);
+        listar.setBounds (270, 320,250,50);
         
         //Voltar
         voltar.setText("Voltar");
@@ -118,23 +96,23 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
 	public static void main (String [] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaClientesOpcoes().setVisible(true);
+				new OptionsCustomersScreen().setVisible(true);
 			}
 		});
 	}
 		  
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaPrincipal().setVisible(true);
+		new MainScreen().setVisible(true);
 	    dispose(); 
 	}   
     
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaClientesCadastro().setVisible(true);
+		new RegisterCustomerScreen().setVisible(true);
 	    dispose(); 
 	}  
     
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new TelaListagemClientes().setVisible(true);
+		new RUDCustomersScreen().setVisible(true);
 	    dispose(); 
 	}  
 
@@ -142,7 +120,4 @@ public class TelaClientesOpcoes extends javax.swing.JFrame {
 	private JButton cadastrar;
 	private JButton voltar;
 	private JButton listar;
-	private JButton excluir;
-	private JButton atualizar;
-
 }

@@ -13,7 +13,7 @@ public Clientes () {
 		
 }
 	
-public Clientes (int cliente_id, String nome, String cpf, String telefone, String endereco_cobranca, Boolean status) {
+public Clientes (int cliente_id, String nome, String cpf, String telefone, String endereco_cobranca) {
 	this.cliente_id = cliente_id;
 	this.nome = nome;
 	this.cpf = cpf;

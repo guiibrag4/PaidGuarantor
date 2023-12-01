@@ -1,7 +1,7 @@
 package Controller;
 
 import java.util.Locale;
-import View.TelaCarregamento;
+import View.LoadingScreen;
 
 public class MainProgramController {
 	public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class MainProgramController {
 
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TelaCarregamento().setVisible(true);
+				new LoadingScreen().setVisible(true);
 			}
 		});
 	}
