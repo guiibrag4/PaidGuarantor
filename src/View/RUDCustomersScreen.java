@@ -131,18 +131,12 @@
 	            String cpf = (String) table.getValueAt(linhaSelecionada, 2);
 	            String telefone = (String) table.getValueAt(linhaSelecionada, 3);
 	            String endereco_cobranca = (String) table.getValueAt(linhaSelecionada, 4);
-
-	            // Aqui você pode abrir uma janela de diálogo para o usuário editar os dados
-	            // ou permitir a edição diretamente na tabela, capturando as alterações
-
-	            // Após as alterações serem feitas pelo usuário, atualize o modelo da tabela
 	            DefaultTableModel model = (DefaultTableModel) table.getModel();
 	            model.setValueAt(nome, linhaSelecionada, 1);
 	            model.setValueAt(cpf, linhaSelecionada, 2);
 	            model.setValueAt(telefone, linhaSelecionada, 3);
 	            model.setValueAt(endereco_cobranca, linhaSelecionada, 4);
 
-	            // Capture os novos valores e atualize o banco de dados
 	            try {
 	                Clientes clienteSelecionado = new Clientes(cliente_id, nome, cpf, telefone, endereco_cobranca);
 	                clientesDAO.atualizarClientes(clienteSelecionado);

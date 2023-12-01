@@ -12,19 +12,20 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import java.util.Locale;
 
 import DAO.ProdutosDAO;
-import Model.Clientes;
 import Model.Produtos;
 import Util.DB;
 
 public class RUDProductsScreen extends JFrame {
-
+	
     private JTable table;
     private ProdutosDAO produtosDAO;
 
     public RUDProductsScreen() {
 
+    	Locale.setDefault(Locale.US);
     	voltar = new JButton ();
     	voltar.addActionListener(new java.awt.event.ActionListener() {
 	        public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +111,6 @@ public class RUDProductsScreen extends JFrame {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Trate ou registre a exceção de acordo com a necessidade
         }
     }
     
