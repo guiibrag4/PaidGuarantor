@@ -19,6 +19,10 @@ import Util.DB;
 
 public class LoginScreen extends javax.swing.JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Connection conexao = null;
 	PreparedStatement sql = null;
 	ResultSet rs = null;
@@ -41,7 +45,6 @@ public class LoginScreen extends javax.swing.JFrame {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	private void initComponents() {
 
 		lblimg = new javax.swing.JLabel();
@@ -92,11 +95,10 @@ public class LoginScreen extends javax.swing.JFrame {
 	}
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-		DB bd = new DB();
-
 		UsuariosDAO u = new UsuariosDAO(DB.getConnection());
 
 		String email = jTextField1.getText();
+		@SuppressWarnings("deprecation")
 		String senha = new String(jPasswordField1.getText());
 
 		if (u.validarLogin(email, senha)) {

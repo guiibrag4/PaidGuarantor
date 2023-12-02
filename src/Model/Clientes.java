@@ -6,67 +6,65 @@ public class Clientes {
 	private String cpf;
 	private String telefone;
 	private String endereco_cobranca;
-	
+
 // Construtores
-	
-public Clientes () {
-		
-}
-	
-public Clientes (int cliente_id, String nome, String cpf, String telefone, String endereco_cobranca) {
-	this.cliente_id = cliente_id;
-	this.nome = nome;
-	this.cpf = cpf;
-	this.telefone = telefone;
-	this.endereco_cobranca = endereco_cobranca;
-}
+
+	public Clientes() {
+
+	}
+
+	public Clientes(int cliente_id, String nome, String cpf, String telefone, String endereco_cobranca) {
+		this.cliente_id = cliente_id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.endereco_cobranca = endereco_cobranca;
+	}
 
 // Métodos getters e setters
 
+	public int getClient_id() {
+		return cliente_id;
+	}
 
-public int getClient_id () {
-	return cliente_id;
-}
+	public int getCliente_id() {
+		return cliente_id;
+	}
 
+	public void setCliente_id(int cliente_id) {
+		this.cliente_id = cliente_id;
+	}
 
-public int getCliente_id() {
-	return cliente_id;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public void setCliente_id(int cliente_id) {
-	this.cliente_id = cliente_id;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public String getNome () {
-	return nome;
-}
+	public String getCpf() {
+		return cpf;
+	}
 
-public void setNome (String nome) {
-	this.nome = nome;
-}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-public String getCpf () {
-	return cpf;
-}
+	public String getTelefone() {
+		return telefone;
+	}
 
-public void setCpf(String cpf) {
-	this.cpf = cpf;
-}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
-public String getTelefone () {
-	return telefone;
-}
+	public String getEndereco_cobranca() {
+		return endereco_cobranca;
+	}
 
-public void setTelefone (String telefone) {
-	this.telefone = telefone;
-}
-
-public String getEndereco_cobranca() {
-	return endereco_cobranca;
-}
-
-public void setEndereco_cobranca(String endereco_cobranca) {
-	this.endereco_cobranca = endereco_cobranca;
-}
+	public void setEndereco_cobranca(String endereco_cobranca) {
+		this.endereco_cobranca = endereco_cobranca;
+	}
 
 }

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Model.Clientes;
 import Model.Produtos;
 
 public class ProdutosDAO {
@@ -35,15 +34,15 @@ public class ProdutosDAO {
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		return preparedStatement.executeQuery();
 	}
-	
-	public void atualizarProduto(Produtos product) throws SQLException { 
-		 String sql = "UPDATE fiado_pago.produtos SET nome = ?, preco = ? WHERE produto_id = ?"; 
-		 PreparedStatement ps = connection.prepareStatement(sql);
-		 
-		 ps.setString(1, product.getNome()); 
-		 ps.setDouble(2, product.getPreco());
-		 ps.setInt (3, product.getProduto_id());
-		 ps.executeUpdate();
+
+	public void atualizarProduto(Produtos product) throws SQLException {
+		String sql = "UPDATE fiado_pago.produtos SET nome = ?, preco = ? WHERE produto_id = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+
+		ps.setString(1, product.getNome());
+		ps.setDouble(2, product.getPreco());
+		ps.setInt(3, product.getProduto_id());
+		ps.executeUpdate();
 	}
 
 	public void excluirProduto(Produtos product) throws SQLException {
