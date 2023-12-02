@@ -1,78 +1,77 @@
 package View;
 
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.*;
 
-
 public class OptionsRegisterSalesScreen extends javax.swing.JFrame {
-	public	OptionsRegisterSalesScreen() {
-	        initComponents();
-	        setLocationRelativeTo(null);
-	    }
 
-	@SuppressWarnings("unchecked")
+	private static final long serialVersionUID = 1L;
+
+	public OptionsRegisterSalesScreen() {
+		initComponents();
+		setLocationRelativeTo(null);
+	}
+
 	private void initComponents() {
 
 		lblimg = new javax.swing.JLabel();
-		voltar = new JButton ();
-		cadastrar = new JButton();	
-		listar = new JButton ();
-		
+		voltar = new JButton();
+		cadastrar = new JButton();
+		listar = new JButton();
+
 		voltar.addActionListener(new java.awt.event.ActionListener() {
-	        public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            voltarActionPerformed(evt);
-	        }
-	    });
-		
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				voltarActionPerformed(evt);
+			}
+		});
+
 		cadastrar.addActionListener(new java.awt.event.ActionListener() {
-	        public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            registrarActionPerformed(evt);
-	        }
-	    });
-		
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				registrarActionPerformed(evt);
+			}
+		});
+
 		listar.addActionListener(new java.awt.event.ActionListener() {
-	        public void actionPerformed(java.awt.event.ActionEvent evt) {
-	        	listarActionPerformed(evt);
-	        }
-	    });
-		
-		//Cadastrar
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				listarActionPerformed(evt);
+			}
+		});
+
+		// Cadastrar
 		cadastrar.setText("Registrar uma nova venda");
-        getContentPane().add(cadastrar);
-        
-        Font novaFonte = new Font ("MV Boli",Font.BOLD, 15);
-        cadastrar.setBackground(Color.GREEN);
-        cadastrar.setForeground(Color.BLACK);
-        cadastrar.setFont(novaFonte);
-        
-        cadastrar.setBounds (270,220,250,50);
-       
-        //Listar
-        listar.setText("Listar as vendas");
-        getContentPane().add(listar);
-        
-        listar.setBackground(Color.GREEN);
-        listar.setForeground(Color.BLACK);
-        listar.setFont(novaFonte);
-        
-        listar.setBounds (270, 320,250,50);
-        
-        //Voltar
-        //Voltar
-        voltar.setText("Voltar");
-        getContentPane().add(voltar);
-        
-        voltar.setBackground(Color.GREEN);
-        voltar.setForeground(Color.BLACK);
-        voltar.setFont(novaFonte);
-        
-        voltar.setBounds (3, 480,150,30);
-        
+		getContentPane().add(cadastrar);
+
+		Font novaFonte = new Font("MV Boli", Font.BOLD, 15);
+		cadastrar.setBackground(Color.GREEN);
+		cadastrar.setForeground(Color.BLACK);
+		cadastrar.setFont(novaFonte);
+
+		cadastrar.setBounds(270, 220, 250, 50);
+
+		// Listar
+		listar.setText("Listar as vendas");
+		getContentPane().add(listar);
+
+		listar.setBackground(Color.GREEN);
+		listar.setForeground(Color.BLACK);
+		listar.setFont(novaFonte);
+
+		listar.setBounds(270, 320, 250, 50);
+
+		// Voltar
+		// Voltar
+		voltar.setText("Voltar");
+		getContentPane().add(voltar);
+
+		voltar.setBackground(Color.GREEN);
+		voltar.setForeground(Color.BLACK);
+		voltar.setFont(novaFonte);
+
+		voltar.setBounds(3, 480, 150, 30);
+
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/TelaBase.png"));
 		Image img = icon.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
 		icon = new ImageIcon(img);
@@ -90,28 +89,28 @@ public class OptionsRegisterSalesScreen extends javax.swing.JFrame {
 
 		pack();
 	}
-	
-	public static void main (String [] args) {
+
+	public static void main(String[] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new OptionsRegisterSalesScreen().setVisible(true);
 			}
 		});
 	}
-	
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
 		new MainScreen().setVisible(true);
-	    dispose(); 
-	}   
-    
-    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		new RegisterSalesScreen().setVisible(true);
-	    dispose(); 
-	}   
-    
-    private void listarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-		
-	} 
+		dispose();
+	}
+
+	private void registrarActionPerformed(java.awt.event.ActionEvent evt) {
+		new RegisterOrdersScreen().setVisible(true);
+		dispose();
+	}
+
+	private void listarActionPerformed(java.awt.event.ActionEvent evt) {
+
+	}
 
 	private JLabel lblimg;
 	private JButton voltar;

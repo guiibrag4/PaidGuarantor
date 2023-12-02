@@ -52,15 +52,15 @@ public class UsuariosDAO {
 		}
 	}
 
-	public void atualizarUsuario(Usuarios user) throws SQLException { 
-		 String sql = "UPDATE fiado_pago.usuarios SET nome = ?, email = ?, senha = ?, telefone = ? WHERE usuario_id = ?"; 
-		 PreparedStatement ps = connection.prepareStatement(sql);
-		 ps.setString(1,user.getNome()); 
-		 ps.setString(2, user.getEmail()); 
-		 ps.setString(3, user.getSenha());
-		 ps.setString(4, user.getTelefone());
-		 ps.setInt(5, user.getUsuario_id());
-		 ps.executeUpdate();
+	public void atualizarUsuario(Usuarios user) throws SQLException {
+		String sql = "UPDATE fiado_pago.usuarios SET nome = ?, email = ?, senha = ?, telefone = ? WHERE usuario_id = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, user.getNome());
+		ps.setString(2, user.getEmail());
+		ps.setString(3, user.getSenha());
+		ps.setString(4, user.getTelefone());
+		ps.setInt(5, user.getUsuario_id());
+		ps.executeUpdate();
 	}
 
 	public void excluirUsuario(Usuarios user) throws SQLException {

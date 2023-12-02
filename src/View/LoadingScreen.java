@@ -8,12 +8,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class LoadingScreen extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+
 	public LoadingScreen() {
 		initComponents();
 		setLocationRelativeTo(null);
 	}
 
-	@SuppressWarnings("unchecked")
 	private void initComponents() {
 		lblimg = new javax.swing.JLabel();
 

@@ -31,20 +31,8 @@ public class Pedidos_produtosDAO {
 		preparedStatement.executeUpdate();
 	}
 
-	public void inserirUsuario(Usuarios user) throws SQLException {
-
-		String sql = "INSERT INTO Usuarios (usuario_id, email, senha, emailrecup, telefone) VALUES (?, ?, ?, ?, ?)";
-
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setInt(1, user.getUsuario_id());
-		preparedStatement.setString(2, user.getEmail());
-		preparedStatement.setString(3, user.getSenha());
-		preparedStatement.setString(5, user.getTelefone());
-		preparedStatement.executeUpdate();
-	}
-
-	public ResultSet listarUsuarios() throws SQLException {
-		String sql = "SELECT * FROM fiado_pago.usuarios";
+	public ResultSet listarPedidos_produtos() throws SQLException {
+		String sql = "SELECT * FROM fiado_pago.pedidos_produtos";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		return preparedStatement.executeQuery();
 	}
