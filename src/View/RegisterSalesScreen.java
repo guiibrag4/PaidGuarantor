@@ -3,6 +3,7 @@ package View;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,7 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import DAO.PedidosDAO;
 import DAO.Pedidos_produtosDAO;
+import Model.Pedidos;
 import Model.Pedidos_produtos;
 import Util.DB;
 
@@ -21,6 +24,7 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 	public RegisterSalesScreen() {
 		initComponents();
 		setLocationRelativeTo(null);
+		carregarUltimoPedido();
 	}
 
 	private void initComponents() {
@@ -28,7 +32,7 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 		lblimg = new javax.swing.JLabel();
 		confirmar = new JButton();
 		voltar = new JButton();
-		jTextField1 = new JTextField();
+		jTextProduto_id = new JTextField();
 		jTextPedido_id = new JTextField();
 		jTextQuantidade = new JTextField();
 		lblNovaVenda = new JLabel();
@@ -37,12 +41,6 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 		lblProduto_id = new JLabel();
 		lblItensPedido = new JLabel();
 		lblQuantidade = new JLabel();
-
-		voltar.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				voltarActionPerformed(evt);
-			}
-		});
 
 		confirmar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,9 +63,9 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 		lblCliente.setBounds(40, 230, 300, 20);
 		lblCliente.setText("Pedido_id:");
 
-		jTextField1.setText("");
-		getContentPane().add(jTextField1);
-		jTextField1.setBounds(190, 227, 250, 30);
+		jTextPedido_id.setText("");
+		getContentPane().add(jTextPedido_id);
+		jTextPedido_id.setBounds(190, 227, 250, 30);
 
 		/*// Valor do Pedido
 		lblValorPedido.setBounds(3, 210, 300, 20);
@@ -81,17 +79,9 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 		lblProduto_id.setBounds(40, 290, 300, 20);
 		lblProduto_id.setText("Produto_id: ");
 
-		jTextPedido_id.setText("");
-		getContentPane().add(jTextPedido_id);
-		jTextPedido_id.setBounds(190, 287, 250, 30);
-
-		/*// Itens do Pedido
-		lblItensPedido.setBounds(3, 370, 300, 20);
-		lblItensPedido.setText("Itens do pedido:");
-
-		jTextField4.setText("");
-		getContentPane().add(jTextField4);
-		jTextField4.setBounds(245, 367, 250, 30);*/
+		jTextProduto_id.setText("");
+		getContentPane().add(jTextProduto_id);
+		jTextProduto_id.setBounds(190, 287, 250, 30);
 
 		// Quantidade
 		lblQuantidade.setBounds(40, 350, 300, 20);
@@ -149,22 +139,9 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 		pack();
 	}
 
-	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new RegisterSalesScreen().setVisible(true);
-			}
-		});
-	}
-
-	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
-		new MainScreen().setVisible(true);
-		dispose();
-	}
-
 	private void confirmarVendaActionPerformed(java.awt.event.ActionEvent evt) {
-		String pedidoTxt = jTextField1.getText();
-		String produtoTxt = jTextPedido_id.getText();
+		String pedidoTxt = jTextPedido_id.getText();
+		String produtoTxt = jTextProduto_id.getText();
 		String quantidadeTxt = jTextQuantidade.getText();
 		int pedido_id = Integer.parseInt(pedidoTxt);
 		int produto_id = Integer.parseInt (produtoTxt);
@@ -190,13 +167,29 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "Erro ao cadastrar a venda: " + e.getMessage());
 		}
 	}
+	
+	private void carregarUltimoPedido() {
+	    PedidosDAO pedidosDAO = new PedidosDAO(DB.getConnection());
+
+	    try {
+	        Pedidos ultimoPedido = pedidosDAO.obterUltimoPedido();
+
+	        if (ultimoPedido != null) {
+	            
+	            jTextPedido_id.setText(String.valueOf(ultimoPedido.getPedido_id()));
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+
 
 	private JLabel lblimg;
 	private JButton confirmar;
 	private JButton voltar;
 	private JTextField jTextQuantidade;
 	private JTextField jTextPedido_id;
-	private JTextField jTextField1;
+	private JTextField jTextProduto_id;
 	private JLabel lblNovaVenda;
 	private JLabel lblCliente;
 	private JLabel lblValorPedido;

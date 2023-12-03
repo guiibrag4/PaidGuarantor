@@ -129,14 +129,6 @@ public class RegisterProductScreen extends javax.swing.JFrame {
 		pack();
 	}
 
-	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new RegisterProductScreen().setVisible(true);
-			}
-		});
-	}
-
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 		String nome = jTextField1.getText();
 		String preco = jFormattedPreco.getText();

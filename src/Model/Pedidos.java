@@ -8,7 +8,11 @@ public class Pedidos {
 
 // Construtores
 
-	public Pedidos() {
+	public Pedidos () {
+		
+	}
+	
+	public Pedidos(int pedido_id2) {
 
 	}
 

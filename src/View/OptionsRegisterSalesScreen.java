@@ -90,14 +90,6 @@ public class OptionsRegisterSalesScreen extends javax.swing.JFrame {
 		pack();
 	}
 
-	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new OptionsRegisterSalesScreen().setVisible(true);
-			}
-		});
-	}
-
 	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
 		new MainScreen().setVisible(true);
 		dispose();
@@ -109,7 +101,8 @@ public class OptionsRegisterSalesScreen extends javax.swing.JFrame {
 	}
 
 	private void listarActionPerformed(java.awt.event.ActionEvent evt) {
-
+		new ListingSalesScreen().setVisible(true);
+		dispose();
 	}
 
 	private JLabel lblimg;

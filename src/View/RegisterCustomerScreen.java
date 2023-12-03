@@ -134,14 +134,6 @@ public class RegisterCustomerScreen extends javax.swing.JFrame {
 		pack();
 	}
 
-	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new RegisterCustomerScreen().setVisible(true);
-			}
-		});
-	}
-
 	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
 		new OptionsCustomersScreen().setVisible(true);
 		dispose();
