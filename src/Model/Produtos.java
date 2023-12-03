@@ -16,6 +16,10 @@ public class Produtos {
 		this.nome = nome;
 		this.preco = preco;
 	}
+	
+	public Produtos (int produto_id) {
+		this.produto_id = produto_id;
+	}
 
 // Métodos getters e setters
 

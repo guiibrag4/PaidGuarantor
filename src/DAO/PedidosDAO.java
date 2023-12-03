@@ -36,5 +36,18 @@ public class PedidosDAO {
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		return preparedStatement.executeQuery();
 	}
+	
+	public Pedidos obterUltimoPedido() throws SQLException {
+	    String query = "SELECT * FROM fiado_pago.pedidos ORDER BY pedido_id DESC LIMIT 1";
+	    try (PreparedStatement statement = connection.prepareStatement(query)) {
+	        ResultSet resultSet = statement.executeQuery();
+	        if (resultSet.next()) {
+	            int pedido_id = resultSet.getInt("pedido_id");
+	            
+	            return new Pedidos(pedido_id);
+	        }
+	    }
+	    return null;
+	}
 
 }

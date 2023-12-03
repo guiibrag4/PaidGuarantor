@@ -91,14 +91,6 @@ public class OptionsCustomersScreen extends javax.swing.JFrame {
 		pack();
 	}
 
-	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new OptionsCustomersScreen().setVisible(true);
-			}
-		});
-	}
-
 	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
 		new MainScreen().setVisible(true);
 		dispose();

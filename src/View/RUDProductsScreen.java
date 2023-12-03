@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import java.util.Locale;
 
@@ -138,7 +137,8 @@ public class RUDProductsScreen extends JFrame {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
+		} else 
+			JOptionPane.showMessageDialog(this, "Selecione um produto para atualizar.", "Nenhum produto selecionado", JOptionPane.WARNING_MESSAGE);
 	}
 
 	private void excluirActionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +162,8 @@ public class RUDProductsScreen extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		}
+		} else
+			JOptionPane.showMessageDialog(this, "Selecione um produto para excluir.", "Nenhum produto selecionado", JOptionPane.WARNING_MESSAGE);
 	}
 
 	private void editarProduto(int linhaSelecionada) {
@@ -183,16 +184,15 @@ public class RUDProductsScreen extends JFrame {
 				Produtos produtoSelecionado = new Produtos(produto_id, novoNome, novoPreco);
 				produtosDAO.atualizarProduto(produtoSelecionado);
 			} catch (SQLException e) {
-				e.printStackTrace();
+				//SQLState, 23 é o código de erro específico de violação de uma chave estrangeira
+			    if (e.getSQLState().startsWith("23")) {
+			        JOptionPane.showMessageDialog(this, "Não é possível excluir o produto devido a referências em outras tabelas.",
+			                "Exclusão não permitida", JOptionPane.WARNING_MESSAGE);
+			    } else {
+			        e.printStackTrace();
+			    }
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(() -> {
-			RUDProductsScreen listagemProdutos = new RUDProductsScreen();
-			listagemProdutos.setVisible(true);
-		});
 	}
 
 	private JButton voltar;

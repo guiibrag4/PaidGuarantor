@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Model.Pedidos_produtos;
-import Model.Usuarios;
 
 public class Pedidos_produtosDAO {
 
@@ -35,6 +34,16 @@ public class Pedidos_produtosDAO {
 		String sql = "SELECT * FROM fiado_pago.pedidos_produtos";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		return preparedStatement.executeQuery();
+	}
+	
+	public ResultSet vendaRealizada() throws SQLException {
+	    String query = "SELECT c.nome AS nome_cliente, p.pedido_id, pro.nome AS nome_produto, p.data_pedido, p.valor_total  FROM fiado_pago.pedidos p JOIN"
+	    		+ " fiado_pago.clientes AS c ON c.cliente_id = p.cliente_id JOIN"
+	    		+ " fiado_pago.pedidos_produtos AS pp ON pp.pedido_id = p.pedido_id JOIN"
+	    		+ " fiado_pago.produtos AS pro ON pro.produto_id = pp.produto_id"
+	    		+ " ORDER BY pedido_id ASC";
+	    PreparedStatement preparedStatement = connection.prepareStatement(query);
+	    return preparedStatement.executeQuery();
 	}
 
 }

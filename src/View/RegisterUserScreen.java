@@ -112,14 +112,6 @@ public class RegisterUserScreen extends javax.swing.JFrame {
 		pack();
 	}
 
-	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new RegisterUserScreen().setVisible(true);
-			}
-		});
-	}
-
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
 		String email = jTextField1.getText();

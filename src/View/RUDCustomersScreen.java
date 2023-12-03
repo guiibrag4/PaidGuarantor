@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.ClientesDAO;
@@ -142,7 +141,8 @@ public class RUDCustomersScreen extends JFrame {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
+		} else
+			JOptionPane.showMessageDialog(this, "Selecione um cliente para atualizar.", "Nenhum cliente selecionado", JOptionPane.WARNING_MESSAGE);
 	}
 
 	private void excluirActionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,10 +165,19 @@ public class RUDCustomersScreen extends JFrame {
 					clientesDAO.excluirCliente(clienteSelecionado);
 					carregarDados();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					//SQLState, 23 é o código de erro específico de violação de uma chave estrangeira
+				    if (e.getSQLState().startsWith("23")) {
+				        JOptionPane.showMessageDialog(this, "Não é possível excluir o cliente devido a referências em outras tabelas.",
+				                "Exclusão não permitida", JOptionPane.WARNING_MESSAGE);
+				    } else {
+				        e.printStackTrace();
+				    }
 				}
-			}
-		}
+			} 
+		}  else {
+        JOptionPane.showMessageDialog(this, "Selecione um cliente para excluir.", "Nenhum cliente selecionado",
+                JOptionPane.WARNING_MESSAGE);
+        }
 	}
 
 	private void editarCliente(int linhaSelecionada) {
@@ -198,13 +207,5 @@ public class RUDCustomersScreen extends JFrame {
 			}
 		}
 	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(() -> {
-			RUDCustomersScreen listagemClientes = new RUDCustomersScreen();
-			listagemClientes.setVisible(true);
-		});
-	}
-
 	private JButton voltar;
 }
