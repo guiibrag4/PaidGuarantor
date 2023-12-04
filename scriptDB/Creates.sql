@@ -21,7 +21,7 @@ CREATE TABLE clientes (
 CREATE TABLE pedidos (
     pedido_id SERIAL PRIMARY KEY,
     cliente_id INTEGER NOT NULL,    
-    data_pedido TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    data_pedido VARCHAR (50),
     valor_total DECIMAL (10,2) 
 );
 

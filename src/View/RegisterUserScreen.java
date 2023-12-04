@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
-
 import DAO.UsuariosDAO;
 import Model.Usuarios;
 import Util.DB;
@@ -38,6 +36,25 @@ public class RegisterUserScreen extends javax.swing.JFrame {
 		lblSenha = new JLabel();
 		lbltelefone = new JLabel();
 		lblNome = new JLabel();
+		
+	voltar = new JButton();
+		
+		voltar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				voltarActionPerformed(evt);
+			}
+		});
+		
+		//voltar
+		voltar.setText("Voltar");
+		getContentPane().add(voltar);
+
+		voltar.setBackground(Color.GREEN);
+		voltar.setForeground(Color.BLACK);
+		Font novaFonte2 = new Font("MV Boli", Font.BOLD, 15);
+		voltar.setFont(novaFonte2);
+
+		voltar.setBounds(3, 480, 150, 30);
 
 		getContentPane().add(lblEmail);
 		getContentPane().add(lblSenha);
@@ -141,7 +158,14 @@ public class RegisterUserScreen extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuário: " + e.getMessage());
 		}
 	}
-
+	
+	
+	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
+		new LoginScreen().setVisible(true);
+		dispose();
+	}
+	
+	private JButton voltar;
 	private JLabel lblimg;
 	private JButton cadastrar;
 	private JTextField jTextField2;

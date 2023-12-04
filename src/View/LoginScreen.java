@@ -52,24 +52,7 @@ public class LoginScreen extends javax.swing.JFrame {
 		jButton2 = new javax.swing.JButton();
 		jPasswordField1 = new javax.swing.JPasswordField();
 		jTextField1 = new javax.swing.JTextField();
-		voltar = new JButton();
-		
-		voltar.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				voltarActionPerformed(evt);
-			}
-		});
-		
-		//voltar
-		voltar.setText("Voltar");
-		getContentPane().add(voltar);
-
-		voltar.setBackground(Color.GREEN);
-		voltar.setForeground(Color.BLACK);
-		Font novaFonte2 = new Font("MV Boli", Font.BOLD, 15);
-		voltar.setFont(novaFonte2);
-
-		voltar.setBounds(3, 480, 150, 30);
+	
 
 		jButton1.setText("ENTRAR");
 		getContentPane().add(jButton1);
@@ -138,12 +121,6 @@ public class LoginScreen extends javax.swing.JFrame {
 	private JButton jButton2;
 	private JPasswordField jPasswordField1;
 	private JTextField jTextField1;
-	
-	private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
-		new MainScreen().setVisible(true);
-		dispose();
-	}
-	
-	private JButton voltar;
+
 
 }
