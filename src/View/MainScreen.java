@@ -69,8 +69,8 @@ public class MainScreen extends javax.swing.JFrame {
 		pagos.setText("Pagos");
 		getContentPane().add(pagos);
 
-		pagos.setBackground(Color.YELLOW);
-		pagos.setForeground(Color.BLACK);
+		pagos.setBackground(Color.WHITE);
+		pagos.setForeground(Color.GRAY);
 		pagos.setFont(novaFonte);
 
 		pagos.setBounds(148, 400, 180, 45);
@@ -89,8 +89,8 @@ public class MainScreen extends javax.swing.JFrame {
 		devedores.setText("Devedores");
 		getContentPane().add(devedores);
 
-		devedores.setBackground(Color.YELLOW);
-		devedores.setForeground(Color.BLACK);
+		devedores.setBackground(Color.WHITE);
+		devedores.setForeground(Color.GRAY);
 		devedores.setFont(novaFonte);
 
 		devedores.setBounds(148, 299, 180, 45);
@@ -129,10 +129,11 @@ public class MainScreen extends javax.swing.JFrame {
 	}
 
 	private void devedoresActionPerformed(java.awt.event.ActionEvent evt) {
-
+		JOptionPane.showMessageDialog(null, "Aguarde a próxima atualização, voltaremos com melhorias!", "Ps: Att", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void pagosActionPerformed(java.awt.event.ActionEvent evt) {
+		JOptionPane.showMessageDialog(null, "Aguarde a próxima atualização, voltaremos com melhorias!", "Ps: Att", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
