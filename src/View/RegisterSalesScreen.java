@@ -31,7 +31,6 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 
 		lblimg = new javax.swing.JLabel();
 		confirmar = new JButton();
-		voltar = new JButton();
 		jTextProduto_id = new JTextField();
 		jTextPedido_id = new JTextField();
 		jTextQuantidade = new JTextField();
@@ -101,15 +100,6 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 
 		confirmar.setBounds(655, 480, 140, 28);
 
-		voltar.setText("Voltar");
-		getContentPane().add(voltar);
-
-		voltar.setBackground(Color.GREEN);
-		voltar.setForeground(Color.BLACK);
-		voltar.setFont(novaFonte);
-
-		voltar.setBounds(3, 480, 140, 28);
-
 		Font fonteLabels = new Font("Arial black", Font.PLAIN, 28);
 		Font fonteLabels2 = new Font("Arial black", Font.PLAIN, 23);
 
@@ -161,7 +151,7 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 		try {
 			p.inserirPedidos_produtos(pp);
 			JOptionPane.showMessageDialog(null, "Venda cadastrada com sucesso!");
-			new RegisterSalesScreen().setVisible(true);
+			new OptionsRegisterSalesScreen().setVisible(true);
 			dispose();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao cadastrar a venda: " + e.getMessage());
@@ -186,7 +176,6 @@ public class RegisterSalesScreen extends javax.swing.JFrame {
 
 	private JLabel lblimg;
 	private JButton confirmar;
-	private JButton voltar;
 	private JTextField jTextQuantidade;
 	private JTextField jTextPedido_id;
 	private JTextField jTextProduto_id;
