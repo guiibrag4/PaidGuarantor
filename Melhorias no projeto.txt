@@ -1,0 +1,7 @@
+1- Atualizar para quando excluir um cliente ou qualquer outro dados que está sendo referenciado, que esse dado seja excluido e - juntamente com ele - todos os dados que o referenciam.
+
+2- Ajustar as buscas por Id, isso está extremamente errado
+
+3- Adicionar um botão de sair.
+
+4- Adicionar as principais funcionalidades do projeto, "Pagos" e "Devedores".
