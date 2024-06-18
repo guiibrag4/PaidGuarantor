@@ -1,0 +1,10 @@
+{
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "C:/Users/guilh/Downloads/postgresql-42.6.0.jar",
+        "jgoodies-forms-1.8.0.jar",
+        "miglayout15-swing.jar"
+    ]
+
+}
