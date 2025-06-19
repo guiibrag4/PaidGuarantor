@@ -85,7 +85,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina.
 
 1.  Clone este repositório:
     ```sh
-    git clone [https://github.com/guiibrag4/PaidGuarantor.git](https://github.com/guiibrag4/PaidGuarantor.git)
+    git clone https://github.com/guiibrag4/PaidGuarantor.git
     ```
 2.  Na raiz do projeto, crie um arquivo chamado `.env`. Este arquivo guardará suas credenciais de acesso ao banco de dados. Adicione as seguintes variáveis e preencha com suas informações:
     ```env
@@ -105,7 +105,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina.
 
 ## 📈 Melhorias Futuras
 
-Este projeto ainda está em desenvolvimento. As próximas funcionalidades e melhorias planejadas são:
+As próximas funcionalidades e melhorias planejadas são:
 
 * **Exclusão em Cascata:** Atualizar o sistema para que, ao excluir um dado (como um cliente), todos os registros que o referenciam sejam tratados ou excluídos em conjunto.
 * **Busca por ID:** Ajustar e corrigir os métodos de busca por ID, que estão incorretos.
