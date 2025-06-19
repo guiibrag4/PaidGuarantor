@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/linguagem-Java-orange.svg" alt="Linguagem Java">
   <img src="https://img.shields.io/badge/banco%20de%20dados-PostgreSQL-blue.svg" alt="Banco de Dados PostgreSQL">
-  <img src="https://img.shields.io/badge/status-Em%20Desenvolvimento-yellow.svg" alt="Status Em Desenvolvimento">
+  <img src="https://img.shields.io/badge/status-Em%20Desenvolvimento-yellow.svg" alt="Status Desenvolvido">
 </div>
 
 <h1 align="center">
